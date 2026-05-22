@@ -154,7 +154,7 @@ class _TextField extends StatelessWidget {
     required this.label,
     required this.controller,
     this.keyboardType = TextInputType.text,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -205,7 +205,7 @@ class _PasswordField extends StatefulWidget {
     Key? key,
     required this.label,
     required this.controller,
-  }) : super(key: key);
+  });
 
   @override
   State<_PasswordField> createState() => _PasswordFieldState();
@@ -279,7 +279,7 @@ class _PasswordFieldState extends State<_PasswordField> {
 // ══════════════════════════════════════════════════════════════════════════════
 class _GlassCard extends StatelessWidget {
   final Widget child;
-  const _GlassCard({Key? key, required this.child}) : super(key: key);
+  const _GlassCard({super.key, required this.child});
 
   @override
   Widget build(BuildContext context) {
@@ -327,7 +327,7 @@ class _GlassCard extends StatelessWidget {
 class _PrimaryButton extends StatelessWidget {
   final String label;
   final VoidCallback onPressed;
-  const _PrimaryButton({Key? key, required this.label, required this.onPressed})
+  const _PrimaryButton({super.key, required this.label, required this.onPressed})
       : super(key: key);
 
   @override
@@ -392,7 +392,7 @@ class _OrDivider extends StatelessWidget {
 class _SocialButton extends StatelessWidget {
   final String label;
   final IconData icon;
-  const _SocialButton({Key? key, required this.label, required this.icon})
+  const _SocialButton({super.key, required this.label, required this.icon})
       : super(key: key);
 
   @override
@@ -444,8 +444,7 @@ class _ToggleRow extends StatelessWidget {
   final String action;
   final VoidCallback onTap;
   const _ToggleRow(
-      {Key? key,
-      required this.question,
+      {super.key, required this.question,
       required this.action,
       required this.onTap})
       : super(key: key);
@@ -484,7 +483,7 @@ class _ToggleRow extends StatelessWidget {
 // ══════════════════════════════════════════════════════════════════════════════
 class _LoginForm extends StatefulWidget {
   final VoidCallback onToggle;
-  const _LoginForm({Key? key, required this.onToggle}) : super(key: key);
+  const _LoginForm({super.key, required this.onToggle});
 
   @override
   State<_LoginForm> createState() => _LoginFormState();
@@ -608,7 +607,7 @@ class _LoginFormState extends State<_LoginForm> {
 // ══════════════════════════════════════════════════════════════════════════════
 class _RegisterForm extends StatefulWidget {
   final VoidCallback onToggle;
-  const _RegisterForm({Key? key, required this.onToggle}) : super(key: key);
+  const _RegisterForm({super.key, required this.onToggle});
 
   @override
   State<_RegisterForm> createState() => _RegisterFormState();
