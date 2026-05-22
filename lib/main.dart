@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'screens/splash_screen.dart';
 import 'screens/login_screen.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
-  
-  // Set preferred orientations and system UI overlay
+
   SystemChrome.setPreferredOrientations([
     DeviceOrientation.portraitUp,
     DeviceOrientation.portraitDown,
@@ -25,7 +23,7 @@ void main() {
 }
 
 class IgniteTunesApp extends StatelessWidget {
-  const IgniteTunesApp({Key? key}) : super(key: key);
+  const IgniteTunesApp({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -47,7 +45,7 @@ class IgniteTunesApp extends StatelessWidget {
         ),
         useMaterial3: true,
       ),
-      home: const LoginScreen(), // TODO: ganti balik ke SplashScreen() sebelum release
+      home: const LoginScreen(), // TODO: ganti ke SplashScreen() sebelum release
     );
   }
 }

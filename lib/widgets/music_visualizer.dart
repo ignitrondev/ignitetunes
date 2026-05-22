@@ -5,16 +5,17 @@ class MusicVisualizer extends StatefulWidget {
   final double width;
 
   const MusicVisualizer({
-    Key? key,
-    this.barColor = const Color(0xFFddb7ff), // primary color
+    super.key,
+    this.barColor = const Color(0xFFddb7ff),
     this.width = 6.0,
-  }) : super(key: key);
+  });
 
   @override
   State<MusicVisualizer> createState() => _MusicVisualizerState();
 }
 
-class _MusicVisualizerState extends State<MusicVisualizer> with TickerProviderStateMixin {
+class _MusicVisualizerState extends State<MusicVisualizer>
+    with TickerProviderStateMixin {
   late List<AnimationController> _controllers;
   late List<Animation<double>> _animations;
 
@@ -36,12 +37,9 @@ class _MusicVisualizerState extends State<MusicVisualizer> with TickerProviderSt
       );
     }).toList();
 
-    // Start animations with slight staggered delays
     for (int i = 0; i < 4; i++) {
       Future.delayed(Duration(milliseconds: i * 150), () {
-        if (mounted) {
-          _controllers[i].repeat(reverse: true);
-        }
+        if (mounted) _controllers[i].repeat(reverse: true);
       });
     }
   }

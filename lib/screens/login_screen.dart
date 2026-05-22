@@ -6,7 +6,7 @@ import '../widgets/neon_glow_background.dart';
 import 'auth_screen.dart';
 
 class LoginScreen extends StatefulWidget {
-  const LoginScreen({Key? key}) : super(key: key);
+  const LoginScreen({super.key});
 
   @override
   State<LoginScreen> createState() => _LoginScreenState();
@@ -30,7 +30,7 @@ class _LoginScreenState extends State<LoginScreen> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            // 1. Header Branding
+            // Header Branding
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -44,7 +44,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         borderRadius: BorderRadius.circular(12),
                         boxShadow: [
                           BoxShadow(
-                            color: const Color(0xFFddb7ff).withOpacity(0.3),
+                            color: const Color(0xFFddb7ff).withValues(alpha: 0.3),
                             blurRadius: 15,
                             spreadRadius: 2,
                           ),
@@ -83,11 +83,10 @@ class _LoginScreenState extends State<LoginScreen> {
             ),
             const Spacer(flex: 1),
 
-            // 2. Onboarding Centerpiece Card
+            // Onboarding Card
             Center(
-              child: Container(
+              child: ConstrainedBox(
                 constraints: const BoxConstraints(maxWidth: 560),
-                width: double.infinity,
                 child: Column(
                   children: [
                     Stack(
@@ -99,11 +98,8 @@ class _LoginScreenState extends State<LoginScreen> {
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              // Staggered equalizer animation
                               const MusicVisualizer(),
                               const SizedBox(height: 24),
-
-                              // Headline text
                               RichText(
                                 text: TextSpan(
                                   style: GoogleFonts.spaceGrotesk(
@@ -116,14 +112,13 @@ class _LoginScreenState extends State<LoginScreen> {
                                     TextSpan(text: "Ignite Your Passion\n"),
                                     TextSpan(
                                       text: "for Music",
-                                      style: TextStyle(color: Color(0xFFddb7ff)),
+                                      style: TextStyle(
+                                          color: Color(0xFFddb7ff)),
                                     ),
                                   ],
                                 ),
                               ),
                               const SizedBox(height: 16),
-
-                              // Description text
                               Text(
                                 "Experience high-fidelity audio wrapped in an interface that breathes with the rhythm. Join the future of sound.",
                                 style: GoogleFonts.geist(
@@ -135,44 +130,52 @@ class _LoginScreenState extends State<LoginScreen> {
                               ),
                               const SizedBox(height: 36),
 
-                              // CTA Button "Get Started"
+                              // Get Started button
                               MouseRegion(
-                                onEnter: (_) => setState(() => _isHovered = true),
-                                onExit: (_) => setState(() => _isHovered = false),
+                                onEnter: (_) =>
+                                    setState(() => _isHovered = true),
+                                onExit: (_) =>
+                                    setState(() => _isHovered = false),
                                 child: AnimatedScale(
                                   scale: _isHovered ? 1.04 : 1.0,
-                                  duration: const Duration(milliseconds: 200),
+                                  duration:
+                                      const Duration(milliseconds: 200),
                                   curve: Curves.easeOut,
                                   child: ElevatedButton(
                                     onPressed: () {
                                       Navigator.of(context).push(
                                         PageRouteBuilder(
-                                          pageBuilder: (context, animation, _) =>
-                                              const AuthScreen(),
-                                          transitionsBuilder:
-                                              (context, animation, _, child) {
+                                          pageBuilder:
+                                              (context, animation, _) =>
+                                                  const AuthScreen(),
+                                          transitionsBuilder: (context,
+                                              animation, _, child) {
                                             return FadeTransition(
                                               opacity: animation,
                                               child: child,
                                             );
                                           },
-                                          transitionDuration:
-                                              const Duration(milliseconds: 500),
+                                          transitionDuration: const Duration(
+                                              milliseconds: 500),
                                         ),
                                       );
                                     },
                                     style: ElevatedButton.styleFrom(
-                                      backgroundColor: const Color(0xFFddb7ff),
-                                      foregroundColor: const Color(0xFF490080),
+                                      backgroundColor:
+                                          const Color(0xFFddb7ff),
+                                      foregroundColor:
+                                          const Color(0xFF490080),
                                       padding: const EdgeInsets.symmetric(
                                         horizontal: 32,
                                         vertical: 18,
                                       ),
                                       shape: RoundedRectangleBorder(
-                                        borderRadius: BorderRadius.circular(9999),
+                                        borderRadius:
+                                            BorderRadius.circular(9999),
                                       ),
                                       elevation: 10,
-                                      shadowColor: const Color(0xFFddb7ff).withOpacity(0.4),
+                                      shadowColor: const Color(0xFFddb7ff)
+                                          .withValues(alpha: 0.4),
                                     ),
                                     child: Row(
                                       mainAxisSize: MainAxisSize.min,
@@ -185,10 +188,8 @@ class _LoginScreenState extends State<LoginScreen> {
                                           ),
                                         ),
                                         const SizedBox(width: 12),
-                                        const Icon(
-                                          Icons.arrow_forward,
-                                          size: 20,
-                                        ),
+                                        const Icon(Icons.arrow_forward,
+                                            size: 20),
                                       ],
                                     ),
                                   ),
@@ -197,7 +198,6 @@ class _LoginScreenState extends State<LoginScreen> {
                             ],
                           ),
                         ),
-                        // Transparent music note graphic in top-right of the card
                         const Positioned(
                           top: -15,
                           right: -15,
@@ -214,13 +214,13 @@ class _LoginScreenState extends State<LoginScreen> {
                     ),
                     const SizedBox(height: 24),
 
-                    // 3. Steps indicator & Active Listeners row
+                    // Dots + Listeners row
                     Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                      padding:
+                          const EdgeInsets.symmetric(horizontal: 16.0),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          // Dots Indicator
                           Row(
                             children: [
                               Container(
@@ -251,10 +251,9 @@ class _LoginScreenState extends State<LoginScreen> {
                               ),
                             ],
                           ),
-                          // Stacked Avatars
                           Row(
                             children: [
-                              Container(
+                              SizedBox(
                                 width: 60,
                                 height: 24,
                                 child: Stack(
@@ -263,12 +262,15 @@ class _LoginScreenState extends State<LoginScreen> {
                                       left: 0,
                                       child: CircleAvatar(
                                         radius: 12,
-                                        backgroundColor: const Color(0xFF131313),
+                                        backgroundColor:
+                                            const Color(0xFF131313),
                                         child: Padding(
                                           padding: const EdgeInsets.all(1.0),
                                           child: ClipRRect(
-                                            borderRadius: BorderRadius.circular(999),
-                                            child: Image.asset('assets/images/user1.png'),
+                                            borderRadius:
+                                                BorderRadius.circular(999),
+                                            child: Image.asset(
+                                                'assets/images/user1.png'),
                                           ),
                                         ),
                                       ),
@@ -277,12 +279,15 @@ class _LoginScreenState extends State<LoginScreen> {
                                       left: 14,
                                       child: CircleAvatar(
                                         radius: 12,
-                                        backgroundColor: const Color(0xFF131313),
+                                        backgroundColor:
+                                            const Color(0xFF131313),
                                         child: Padding(
                                           padding: const EdgeInsets.all(1.0),
                                           child: ClipRRect(
-                                            borderRadius: BorderRadius.circular(999),
-                                            child: Image.asset('assets/images/user2.png'),
+                                            borderRadius:
+                                                BorderRadius.circular(999),
+                                            child: Image.asset(
+                                                'assets/images/user2.png'),
                                           ),
                                         ),
                                       ),
@@ -291,7 +296,8 @@ class _LoginScreenState extends State<LoginScreen> {
                                       left: 28,
                                       child: CircleAvatar(
                                         radius: 12,
-                                        backgroundColor: const Color(0xFF2a2a2a),
+                                        backgroundColor:
+                                            const Color(0xFF2a2a2a),
                                         child: Text(
                                           "+4k",
                                           style: GoogleFonts.jetBrainsMono(
@@ -325,7 +331,7 @@ class _LoginScreenState extends State<LoginScreen> {
             ),
             const Spacer(flex: 2),
 
-            // 4. Asymmetric Features Section (Bottom Grid)
+            // Feature cards grid
             Row(
               children: [
                 Expanded(
@@ -361,13 +367,10 @@ class _LoginScreenState extends State<LoginScreen> {
                         ),
                       ),
                       const SizedBox(height: 16),
-                      Transform.translate(
-                        offset: const Offset(0, 0),
-                        child: _buildFeatureCard(
-                          icon: Icons.all_inclusive,
-                          color: const Color(0xFF988d9f),
-                          label: "Cross-Device",
-                        ),
+                      _buildFeatureCard(
+                        icon: Icons.all_inclusive,
+                        color: const Color(0xFF988d9f),
+                        label: "Cross-Device",
                       ),
                     ],
                   ),
@@ -391,11 +394,7 @@ class _LoginScreenState extends State<LoginScreen> {
       padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 20.0),
       child: Row(
         children: [
-          Icon(
-            icon,
-            color: color,
-            size: 24,
-          ),
+          Icon(icon, color: color, size: 24),
           const SizedBox(width: 12),
           Expanded(
             child: Text(

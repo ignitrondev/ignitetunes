@@ -9,13 +9,13 @@ class GlassCard extends StatelessWidget {
   final double blur;
 
   const GlassCard({
-    Key? key,
+    super.key,
     required this.child,
     this.borderRadius = 32.0,
     this.padding = const EdgeInsets.all(24.0),
     this.borderWidth = 1.0,
     this.blur = 20.0,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -31,17 +31,17 @@ class GlassCard extends StatelessWidget {
               begin: Alignment.topLeft,
               end: Alignment.bottomRight,
               colors: [
-                Colors.white.withOpacity(0.03),
-                Colors.white.withOpacity(0.07),
+                Colors.white.withValues(alpha: 0.03),
+                Colors.white.withValues(alpha: 0.07),
               ],
             ),
             border: Border.all(
-              color: Colors.white.withOpacity(0.1),
+              color: Colors.white.withValues(alpha: 0.1),
               width: borderWidth,
             ),
             boxShadow: [
               BoxShadow(
-                color: Colors.black.withOpacity(0.37),
+                color: Colors.black.withValues(alpha: 0.37),
                 blurRadius: 32.0,
                 offset: const Offset(0, 8),
               ),

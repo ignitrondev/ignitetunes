@@ -6,10 +6,10 @@ class NeonGlowBackground extends StatelessWidget {
   final bool showBackgroundImage;
 
   const NeonGlowBackground({
-    Key? key,
+    super.key,
     required this.child,
     this.showBackgroundImage = true,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +19,7 @@ class NeonGlowBackground extends StatelessWidget {
       backgroundColor: const Color(0xFF131313),
       body: Stack(
         children: [
-          // 1. Ambient Glow 1 (Top-Right Purple/Violet)
+          // Ambient Glow 1 — top-right purple
           Positioned(
             top: -size.height * 0.1,
             right: -size.width * 0.1,
@@ -30,13 +30,13 @@ class NeonGlowBackground extends StatelessWidget {
               child: Container(
                 decoration: BoxDecoration(
                   shape: BoxShape.circle,
-                  color: const Color(0xFFddb7ff).withOpacity(0.12),
+                  color: const Color(0xFFddb7ff).withValues(alpha: 0.12),
                 ),
               ),
             ),
           ),
 
-          // 2. Ambient Glow 2 (Bottom-Left Blue/Azure)
+          // Ambient Glow 2 — bottom-left blue
           Positioned(
             bottom: -size.height * 0.1,
             left: -size.width * 0.1,
@@ -47,13 +47,13 @@ class NeonGlowBackground extends StatelessWidget {
               child: Container(
                 decoration: BoxDecoration(
                   shape: BoxShape.circle,
-                  color: const Color(0xFFadc6ff).withOpacity(0.08),
+                  color: const Color(0xFFadc6ff).withValues(alpha: 0.08),
                 ),
               ),
             ),
           ),
 
-          // 3. Concert Vibe Background Image (Luminosity mix-blend style)
+          // Concert background image
           if (showBackgroundImage)
             Positioned.fill(
               child: Opacity(
@@ -67,26 +67,23 @@ class NeonGlowBackground extends StatelessWidget {
               ),
             ),
 
-          // 4. Subtle center radial overlay for vignette effect
+          // Vignette overlay
           Positioned.fill(
-            child: Container(
+            child: DecoratedBox(
               decoration: BoxDecoration(
                 gradient: RadialGradient(
                   center: Alignment.center,
                   radius: 1.2,
                   colors: [
                     Colors.transparent,
-                    Colors.black.withOpacity(0.4),
+                    Colors.black.withValues(alpha: 0.4),
                   ],
                 ),
               ),
             ),
           ),
 
-          // 5. Main Content Canvas
-          SafeArea(
-            child: child,
-          ),
+          SafeArea(child: child),
         ],
       ),
     );
