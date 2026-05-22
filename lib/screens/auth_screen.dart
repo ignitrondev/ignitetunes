@@ -150,7 +150,6 @@ class _TextField extends StatelessWidget {
   final TextInputType keyboardType;
 
   const _TextField({
-    Key? key,
     required this.label,
     required this.controller,
     this.keyboardType = TextInputType.text,
@@ -202,7 +201,6 @@ class _PasswordField extends StatefulWidget {
   final TextEditingController controller;
 
   const _PasswordField({
-    Key? key,
     required this.label,
     required this.controller,
   });
@@ -279,7 +277,7 @@ class _PasswordFieldState extends State<_PasswordField> {
 // ══════════════════════════════════════════════════════════════════════════════
 class _GlassCard extends StatelessWidget {
   final Widget child;
-  const _GlassCard({super.key, required this.child});
+  const _GlassCard({required this.child});
 
   @override
   Widget build(BuildContext context) {
@@ -327,8 +325,7 @@ class _GlassCard extends StatelessWidget {
 class _PrimaryButton extends StatelessWidget {
   final String label;
   final VoidCallback onPressed;
-  const _PrimaryButton({super.key, required this.label, required this.onPressed})
-      : super(key: key);
+  const _PrimaryButton({required this.label, required this.onPressed});
 
   @override
   Widget build(BuildContext context) {
@@ -356,7 +353,7 @@ class _PrimaryButton extends StatelessWidget {
 // OR DIVIDER
 // ══════════════════════════════════════════════════════════════════════════════
 class _OrDivider extends StatelessWidget {
-  const _OrDivider({super.key});
+  const _OrDivider();
 
   @override
   Widget build(BuildContext context) {
@@ -392,8 +389,7 @@ class _OrDivider extends StatelessWidget {
 class _SocialButton extends StatelessWidget {
   final String label;
   final IconData icon;
-  const _SocialButton({super.key, required this.label, required this.icon})
-      : super(key: key);
+  const _SocialButton({required this.label, required this.icon});
 
   @override
   Widget build(BuildContext context) {
@@ -443,11 +439,10 @@ class _ToggleRow extends StatelessWidget {
   final String question;
   final String action;
   final VoidCallback onTap;
-  const _ToggleRow(
-      {super.key, required this.question,
+  const _ToggleRow({
+      required this.question,
       required this.action,
-      required this.onTap})
-      : super(key: key);
+      required this.onTap});
 
   @override
   Widget build(BuildContext context) {
