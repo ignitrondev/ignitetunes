@@ -1,18 +1,18 @@
-# IgniteTunes 🎵
+# IgniteTunes
 
-Selamat datang di IgniteTunes! Aplikasi musik gratis untuk kita semua.
+Welcome to the IgniteTunes distribution page. This repository provides the latest builds for the IgniteTunes music application.
 
-## 🚀 Download Aplikasi
-Silakan download file APK terbaru di bawah ini untuk mulai mendengarkan musik:
+## Download
 
-- **[Download APK v1.0.0](https://github.com/ignitrondev/ignitetunes/releases)** (Cek bagian Releases)
+You can download the latest APK from the Releases section:
+
+- **[Latest Release](https://github.com/ignitrondev/ignitetunes/releases)**
+
+## Installation
+
+1. Download the APK file from the link above.
+2. If prompted, enable "Install from Unknown Sources" in your device settings.
+3. Open the file and follow the installation prompts.
 
 ---
-
-## 📱 Cara Install
-1. Download file APK di atas.
-2. Jika muncul peringatan "Install dari sumber tidak dikenal", izinkan di pengaturan HP Anda.
-3. Buka aplikasi dan nikmati musiknya!
-
----
-*Dibuat dengan ❤️ untuk komunitas Telegram.*
+Built for the community.
