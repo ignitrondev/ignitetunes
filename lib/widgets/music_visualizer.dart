@@ -5,10 +5,10 @@ class MusicVisualizer extends StatefulWidget {
   final double width;
 
   const MusicVisualizer({
-    Key? key,
+    super.key,
     this.barColor = const Color(0xFFddb7ff), // primary color
     this.width = 6.0,
-  }) : super(key: key);
+  });
 
   @override
   State<MusicVisualizer> createState() => _MusicVisualizerState();

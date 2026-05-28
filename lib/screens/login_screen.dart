@@ -6,7 +6,7 @@ import '../widgets/neon_glow_background.dart';
 import 'auth_screen.dart';
 
 class LoginScreen extends StatefulWidget {
-  const LoginScreen({Key? key}) : super(key: key);
+  const LoginScreen({super.key});
 
   @override
   State<LoginScreen> createState() => _LoginScreenState();
@@ -254,7 +254,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           // Stacked Avatars
                           Row(
                             children: [
-                              Container(
+                              SizedBox(
                                 width: 60,
                                 height: 24,
                                 child: Stack(

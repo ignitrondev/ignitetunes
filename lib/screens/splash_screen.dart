@@ -3,12 +3,11 @@ import 'dart:math';
 import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import '../widgets/glass_card.dart';
 import '../widgets/neon_glow_background.dart';
 import 'login_screen.dart';
 
 class SplashScreen extends StatefulWidget {
-  const SplashScreen({Key? key}) : super(key: key);
+  const SplashScreen({super.key});
 
   @override
   State<SplashScreen> createState() => _SplashScreenState();
@@ -122,7 +121,7 @@ class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderSt
                     child: child,
                   );
                 },
-                child: Container(
+                child: SizedBox(
                   width: 200,
                   height: 200,
                   child: Stack(
@@ -197,7 +196,7 @@ class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderSt
               const Spacer(flex: 2),
 
               // Loading Journey Indicator
-              Container(
+              SizedBox(
                 width: 280,
                 child: Column(
                   children: [

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'screens/splash_screen.dart';
-import 'screens/login_screen.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -25,7 +24,7 @@ void main() {
 }
 
 class IgniteTunesApp extends StatelessWidget {
-  const IgniteTunesApp({Key? key}) : super(key: key);
+  const IgniteTunesApp({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -47,7 +46,7 @@ class IgniteTunesApp extends StatelessWidget {
         ),
         useMaterial3: true,
       ),
-      home: const LoginScreen(), // TODO: ganti balik ke SplashScreen() sebelum release
+      home: const SplashScreen(),
     );
   }
 }

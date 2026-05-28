@@ -2,12 +2,13 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../widgets/neon_glow_background.dart';
+import 'home_screen.dart';
 
 // ══════════════════════════════════════════════════════════════════════════════
 // AUTH SCREEN
 // ══════════════════════════════════════════════════════════════════════════════
 class AuthScreen extends StatefulWidget {
-  const AuthScreen({Key? key}) : super(key: key);
+  const AuthScreen({super.key});
 
   @override
   State<AuthScreen> createState() => _AuthScreenState();
@@ -150,11 +151,10 @@ class _TextField extends StatelessWidget {
   final TextInputType keyboardType;
 
   const _TextField({
-    Key? key,
     required this.label,
     required this.controller,
     this.keyboardType = TextInputType.text,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -202,10 +202,9 @@ class _PasswordField extends StatefulWidget {
   final TextEditingController controller;
 
   const _PasswordField({
-    Key? key,
     required this.label,
     required this.controller,
-  }) : super(key: key);
+  });
 
   @override
   State<_PasswordField> createState() => _PasswordFieldState();
@@ -279,7 +278,7 @@ class _PasswordFieldState extends State<_PasswordField> {
 // ══════════════════════════════════════════════════════════════════════════════
 class _GlassCard extends StatelessWidget {
   final Widget child;
-  const _GlassCard({Key? key, required this.child}) : super(key: key);
+  const _GlassCard({required this.child});
 
   @override
   Widget build(BuildContext context) {
@@ -327,8 +326,7 @@ class _GlassCard extends StatelessWidget {
 class _PrimaryButton extends StatelessWidget {
   final String label;
   final VoidCallback onPressed;
-  const _PrimaryButton({Key? key, required this.label, required this.onPressed})
-      : super(key: key);
+  const _PrimaryButton({required this.label, required this.onPressed});
 
   @override
   Widget build(BuildContext context) {
@@ -356,7 +354,7 @@ class _PrimaryButton extends StatelessWidget {
 // OR DIVIDER
 // ══════════════════════════════════════════════════════════════════════════════
 class _OrDivider extends StatelessWidget {
-  const _OrDivider({Key? key}) : super(key: key);
+  const _OrDivider();
 
   @override
   Widget build(BuildContext context) {
@@ -392,8 +390,7 @@ class _OrDivider extends StatelessWidget {
 class _SocialButton extends StatelessWidget {
   final String label;
   final IconData icon;
-  const _SocialButton({Key? key, required this.label, required this.icon})
-      : super(key: key);
+  const _SocialButton({required this.label, required this.icon});
 
   @override
   Widget build(BuildContext context) {
@@ -444,11 +441,9 @@ class _ToggleRow extends StatelessWidget {
   final String action;
   final VoidCallback onTap;
   const _ToggleRow(
-      {Key? key,
-      required this.question,
+      {required this.question,
       required this.action,
-      required this.onTap})
-      : super(key: key);
+      required this.onTap});
 
   @override
   Widget build(BuildContext context) {
@@ -484,7 +479,7 @@ class _ToggleRow extends StatelessWidget {
 // ══════════════════════════════════════════════════════════════════════════════
 class _LoginForm extends StatefulWidget {
   final VoidCallback onToggle;
-  const _LoginForm({Key? key, required this.onToggle}) : super(key: key);
+  const _LoginForm({super.key, required this.onToggle});
 
   @override
   State<_LoginForm> createState() => _LoginFormState();
@@ -577,16 +572,24 @@ class _LoginFormState extends State<_LoginForm> {
           ),
           const SizedBox(height: 28),
 
-          _PrimaryButton(label: "Ignite Session", onPressed: () {}),
+          _PrimaryButton(
+            label: "Ignite Session",
+            onPressed: () {
+              Navigator.of(context).pushAndRemoveUntil(
+                MaterialPageRoute(builder: (_) => const HomeScreen()),
+                (route) => false,
+              );
+            },
+          ),
           const SizedBox(height: 24),
 
           const _OrDivider(),
           const SizedBox(height: 20),
 
           Row(
-            children: const [
+            children: [
               Expanded(child: _SocialButton(label: "Google", icon: Icons.g_mobiledata)),
-              SizedBox(width: 12),
+              const SizedBox(width: 12),
               Expanded(child: _SocialButton(label: "Apple", icon: Icons.apple)),
             ],
           ),
@@ -608,7 +611,7 @@ class _LoginFormState extends State<_LoginForm> {
 // ══════════════════════════════════════════════════════════════════════════════
 class _RegisterForm extends StatefulWidget {
   final VoidCallback onToggle;
-  const _RegisterForm({Key? key, required this.onToggle}) : super(key: key);
+  const _RegisterForm({super.key, required this.onToggle});
 
   @override
   State<_RegisterForm> createState() => _RegisterFormState();
@@ -657,7 +660,15 @@ class _RegisterFormState extends State<_RegisterForm> {
           _PasswordField(label: "Create Password", controller: _passCtrl),
           const SizedBox(height: 32),
 
-          _PrimaryButton(label: "Join IgniteTunes", onPressed: () {}),
+          _PrimaryButton(
+            label: "Join IgniteTunes",
+            onPressed: () {
+              Navigator.of(context).pushAndRemoveUntil(
+                MaterialPageRoute(builder: (_) => const HomeScreen()),
+                (route) => false,
+              );
+            },
+          ),
           const SizedBox(height: 24),
 
           _ToggleRow(
