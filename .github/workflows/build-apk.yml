@@ -41,6 +41,12 @@ jobs:
       - name: Analyze code
         run: flutter analyze --no-fatal-infos
 
+      - name: Extract version from pubspec.yaml
+        id: extract_version
+        run: |
+          VERSION=$(grep '^version: ' pubspec.yaml | cut -d ' ' -f 2 | cut -d '+' -f 1)
+          echo "version=$VERSION" >> $GITHUB_OUTPUT
+
       - name: Build APK (release)
         run: |
           flutter build apk --release --split-per-abi
@@ -60,10 +66,10 @@ jobs:
         uses: softprops/action-gh-release@v2
         with:
           files: build/app/outputs/flutter-apk/*.apk
-          tag_name: build-${{ github.run_number }}
-          name: Release Build ${{ github.run_number }}
+          tag_name: v${{ steps.extract_version.outputs.version }}
+          name: Release v${{ steps.extract_version.outputs.version }}
           body: |
-            Automatic Release from Build #${{ github.run_number }}
+            Automatic Release for version v${{ steps.extract_version.outputs.version }}
             
             Changes in this release:
             ${{ github.event.head_commit.message }}
