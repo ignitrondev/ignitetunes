@@ -6,10 +6,10 @@ class NeonGlowBackground extends StatelessWidget {
   final bool showBackgroundImage;
 
   const NeonGlowBackground({
-    Key? key,
+    super.key,
     required this.child,
     this.showBackgroundImage = true,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
