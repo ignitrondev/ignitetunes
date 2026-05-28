@@ -30,7 +30,7 @@ class NeonGlowBackground extends StatelessWidget {
               child: Container(
                 decoration: BoxDecoration(
                   shape: BoxShape.circle,
-                  color: const Color(0xFFddb7ff).withOpacity(0.12),
+                  color: const Color(0xFFddb7ff).withValues(alpha: 0.12),
                 ),
               ),
             ),
@@ -47,7 +47,7 @@ class NeonGlowBackground extends StatelessWidget {
               child: Container(
                 decoration: BoxDecoration(
                   shape: BoxShape.circle,
-                  color: const Color(0xFFadc6ff).withOpacity(0.08),
+                  color: const Color(0xFFadc6ff).withValues(alpha: 0.08),
                 ),
               ),
             ),
@@ -76,7 +76,7 @@ class NeonGlowBackground extends StatelessWidget {
                   radius: 1.2,
                   colors: [
                     Colors.transparent,
-                    Colors.black.withOpacity(0.4),
+                    Colors.black.withValues(alpha: 0.4),
                   ],
                 ),
               ),

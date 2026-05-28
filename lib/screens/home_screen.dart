@@ -1,4 +1,3 @@
-import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:youtube_explode_dart/youtube_explode_dart.dart';
 import 'package:just_audio/just_audio.dart';
@@ -211,7 +210,7 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget _buildMiniPlayer() {
     return Container(
       decoration: BoxDecoration(
-        color: Colors.black.withOpacity(0.8),
+        color: Colors.black.withValues(alpha: 0.8),
         border: const Border(top: BorderSide(color: Colors.white12, width: 0.5)),
       ),
       padding: const EdgeInsets.fromLTRB(16, 8, 16, 24),

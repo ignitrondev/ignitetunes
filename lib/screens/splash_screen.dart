@@ -133,14 +133,14 @@ class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderSt
                         height: 200,
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(40.0),
-                          color: Colors.white.withOpacity(0.04),
+                          color: Colors.white.withValues(alpha: 0.04),
                           border: Border.all(
-                            color: Colors.white.withOpacity(0.08),
+                            color: Colors.white.withValues(alpha: 0.08),
                             width: 1.5,
                           ),
                           boxShadow: [
                             BoxShadow(
-                              color: Colors.black.withOpacity(0.4),
+                              color: Colors.black.withValues(alpha: 0.4),
                               blurRadius: 40,
                               spreadRadius: 2,
                             ),
@@ -205,7 +205,7 @@ class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderSt
                       height: 4,
                       width: double.infinity,
                       decoration: BoxDecoration(
-                        color: Colors.white.withOpacity(0.1),
+                        color: Colors.white.withValues(alpha: 0.1),
                         borderRadius: BorderRadius.circular(9999),
                       ),
                       child: Stack(
@@ -224,7 +224,7 @@ class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderSt
                                 ),
                                 boxShadow: [
                                   BoxShadow(
-                                    color: const Color(0xFFddb7ff).withOpacity(0.6),
+                                    color: const Color(0xFFddb7ff).withValues(alpha: 0.6),
                                     blurRadius: _progress >= 1.0 ? 15.0 : 8.0,
                                     spreadRadius: _progress >= 1.0 ? 2.0 : 0.0,
                                   ),
@@ -272,7 +272,7 @@ class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderSt
                 "Powered by IgniteEngine v2.0",
                 style: GoogleFonts.jetBrainsMono(
                   fontSize: 10,
-                  color: Colors.white.withOpacity(0.35),
+                  color: Colors.white.withValues(alpha: 0.35),
                   fontWeight: FontWeight.w400,
                 ),
               ),
