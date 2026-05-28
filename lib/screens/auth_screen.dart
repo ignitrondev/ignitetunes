@@ -70,11 +70,11 @@ class _AuthScreenState extends State<AuthScreen> {
           height: 64,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(16),
-            color: Colors.white.withOpacity(0.03),
-            border: Border.all(color: Colors.white.withOpacity(0.1)),
+            color: Colors.white.withValues(alpha: 0.03),
+            border: Border.all(color: Colors.white.withValues(alpha: 0.1)),
             boxShadow: [
               BoxShadow(
-                color: const Color(0xFFddb7ff).withOpacity(0.2),
+                color: const Color(0xFFddb7ff).withValues(alpha: 0.2),
                 blurRadius: 40,
                 spreadRadius: 2,
               ),
@@ -112,7 +112,7 @@ class _AuthScreenState extends State<AuthScreen> {
           "Experience the rhythm of light.",
           style: GoogleFonts.geist(
             fontSize: 14,
-            color: const Color(0xFFcfc2d6).withOpacity(0.7),
+            color: const Color(0xFFcfc2d6).withValues(alpha: 0.7),
           ),
         ),
       ],
@@ -289,9 +289,9 @@ class _GlassCard extends StatelessWidget {
         child: Container(
           width: double.infinity,
           decoration: BoxDecoration(
-            color: Colors.white.withOpacity(0.03),
+            color: Colors.white.withValues(alpha: 0.03),
             borderRadius: BorderRadius.circular(32),
-            border: Border.all(color: Colors.white.withOpacity(0.1)),
+            border: Border.all(color: Colors.white.withValues(alpha: 0.1)),
           ),
           child: Stack(
             children: [
@@ -302,7 +302,7 @@ class _GlassCard extends StatelessWidget {
                   decoration: BoxDecoration(
                     gradient: LinearGradient(colors: [
                       Colors.transparent,
-                      Colors.white.withOpacity(0.2),
+                      Colors.white.withValues(alpha: 0.2),
                       Colors.transparent,
                     ]),
                   ),
@@ -363,14 +363,14 @@ class _OrDivider extends StatelessWidget {
         Expanded(
             child: Container(
                 height: 1,
-                color: const Color(0xFF4d4354).withOpacity(0.4))),
+                color: const Color(0xFF4d4354).withValues(alpha: 0.4))),
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 12),
           child: Text(
             "OR CONTINUE WITH",
             style: GoogleFonts.jetBrainsMono(
               fontSize: 10,
-              color: const Color(0xFFcfc2d6).withOpacity(0.5),
+              color: const Color(0xFFcfc2d6).withValues(alpha: 0.5),
               letterSpacing: 1.5,
             ),
           ),
@@ -378,7 +378,7 @@ class _OrDivider extends StatelessWidget {
         Expanded(
             child: Container(
                 height: 1,
-                color: const Color(0xFF4d4354).withOpacity(0.4))),
+                color: const Color(0xFF4d4354).withValues(alpha: 0.4))),
       ],
     );
   }
@@ -400,9 +400,9 @@ class _SocialButton extends StatelessWidget {
         filter: ImageFilter.blur(sigmaX: 10, sigmaY: 10),
         child: Container(
           decoration: BoxDecoration(
-            color: Colors.white.withOpacity(0.03),
+            color: Colors.white.withValues(alpha: 0.03),
             borderRadius: BorderRadius.circular(12),
-            border: Border.all(color: Colors.white.withOpacity(0.1)),
+            border: Border.all(color: Colors.white.withValues(alpha: 0.1)),
           ),
           child: TextButton(
             onPressed: () {},
